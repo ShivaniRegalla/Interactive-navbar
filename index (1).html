@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Fixed Navigation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  padding: 15px 40px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+nav.scrolled {
+  background: #1e293b; /* dark blue */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+  background: #38bdf8; /* sky blue */
+  color: #0f172a;
+}
+
+/* Page Content */
+section {
+  height: 100vh;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 32px;
+}
+
+#home { background: #94a3b8; }
+#about { background: #cbd5e1; }
+#services { background: #e2e8f0; }
+#contact { background: #f1f5f9; }
+
+  </style>
+</head>
+<body>  <!-- Navigation Menu -->  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>  <!-- Page Sections -->  <section id="home">Home Section</section>
+  <section id="about">About Section</section>
+  <section id="services">Services Section</section>
+  <section id="contact">Contact Section</section>  <script>
+    // Change navbar style on scroll
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script></body>
+</html>
